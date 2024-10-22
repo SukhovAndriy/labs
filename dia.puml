@@ -1,0 +1,35 @@
+@startuml
+class lab3.SimpleElement {
+- double width
+- double height
++ double calculateArea()
++ void displayInfo()
+}
+
+
+abstract class lab3.GameElem {
+# String name
++ String getName()
++ {abstract}void displayInfo()
+}
+
+
+class lab3.CompositeElement {
+- List<GameElem> elements
++ void addElement(GameElem)
++ void removeElement(GameElem)
++ double calculateArea()
++ void displayInfo()
+}
+
+
+interface lab3.CalcArea {
+~ double calculateArea()
+}
+
+
+
+lab3.GameElem <|-- lab3.SimpleElement
+lab3.CalcArea <|.. lab3.GameElem
+lab3.GameElem <|-- lab3.CompositeElement
+@enduml
